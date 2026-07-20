@@ -1,0 +1,79 @@
+= **RPI Pi-Hole**
+Raspberry Pi 5 & Huawei HG8245X6-10: DHCP & static IP configuration
+
+create super-compacted guides in form of in-chat rendered tables, geting to desired state out of current config. draw additional context from all availible chats relating to RPI setup.
+
+''''
+====== **DESIRED STATE**
+* RPI is assigned static IP
+	- preferably from secondary adress pool
+* DHCP control is passed onto RPI from Huawei router
+   - can be split depending on network or adress pool - if possible, feasible, and within industry standards
+* RPI can be remotely controlled by PC
+
+''''
+
+====== **CONTEXT**
+* RPI, PC, TV are on ethernet
+* laptops and phones are on WI-FI
+* router currently sends 2.4G and 5G signals, with different network names
+* router has option to create secondary adress pool, as well as secondary DHCP
+* RPI is controlled by PC with key-auth, using Powershell in VSCode
+* RPI is connected to TV via HDMI
+	- eventually only for content playback
+	- currently interactable GUI
+	- currently controllable with bluetooth peripherals
+
+''''
+====== **NETWORK**
+
+[cols="20%,30%,30%",options="header", caption="", title="Huawei Adress Pools"]
+|===
+|pool		|start of range	|end of range
+|primary	|192.0.2.2	|192.0.2.199
+|secondary	|192.0.2.2	|192.0.2.99
+|===
+
+[cols="10%,30%,30%,30%",options="header", caption="", title="Mappings"]
+|===
+| 		|current adress	|desired adress	|MAC adress
+|RPI:		|192.0.2.53	|192.0.2.200	|XX:XX:XX:XX:XX:XX
+|PC:		|192.0.2.40	|192.0.2.201	|XX:XX:XX:XX:XX:XX
+|android:	|192.0.2.7	|192.0.2.202	|XX:XX:XX:XX:XX:XX
+|laptop:	|192.0.2.48	|192.0.2.203	|XX:XX:XX:XX:XX:XX
+|===
+
+''''
+
+====== **COMMUNICATION**
+* create step guides using neatly and condensely formatted tables
+   - index
+   - step name - all with simmilar charachter count
+   - 1-liner to enable proceeding to the next step
+   - alternative step or one-liner for dealing with common errors, mistakes, and noob-traps
+* render the tables inside your response inside the chat
+* refrain from commenting, explaining, and assuming my intentions - if unsure: ask
+* limit output to only neccesary information
+* gpt-verbosity = 0
+
+
+''''
+
+=== Raspberry Pi Setup
+Pi-hole
+
+I'm connected to rpi5 on wifi & ethernet. keygen auth works only on wifi. I want to connect to rpi through ethernet.
+
+Create 1-liners to be ran from powershell:
+
+1st:
+* keygen auth & pub
+* designate IP's
+  - on router or on rpi
+  - Desired State is pihole dhcp for secondary adresses
+
+2nd:
+* verify connection is through ethernet
+* disable wifi on rpi
+* verify keyauth
+* remove password login from rpi

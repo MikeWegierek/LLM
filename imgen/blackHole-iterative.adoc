@@ -1,0 +1,58 @@
+use provided prompt and it's context to create a HQ fHD PNG.
+
+= Final Prompt:
+
+A breathtaking, photorealistic depiction of a supermassive black hole, suspended in the vast, uncharted depths of space. Positioned slightly off-center to the left, its event horizon is an abyss of absolute darkness—an all-consuming void that devours light and matter alike.
+
+Encircling this gravitational titan is a dazzling accretion disk, a maelstrom of incandescent, swirling plasma, compressed to unimaginable densities. It blazes with the intensity of a thousand suns, radiating searing golden hues that transition into fiery amber and ghostly white as relativistic effects distort light. The sheer velocity of the matter within creates an ethereal, lensing glow, warping spacetime itself into a mesmerizing optical illusion.
+
+Beyond the accretion disk, the surrounding cosmos stretches infinitely, an ocean of distant galaxies and interstellar phenomena. Countless stars, like scattered diamonds, punctuate the graphite-black void, their cold luminescence contrasting sharply with the ferocious brilliance of the black hole’s gravitational grip. Wisps of interstellar gas, barely perceptible, drift in the background—subtle traces of the universe’s ever-churning engine.
+
+The composition evokes an overwhelming sense of cosmic power, the sheer scale of the celestial behemoth defying human comprehension. The interplay of light and shadow, the warping of space, and the intense energy radiating from the scene create an awe-inspiring visualization of one of the most enigmatic forces in the universe—both a destroyer and a sculptor of the cosmic order.
+
+= Iterations
+== objective
+
+imagine that you are a prompt-optimising-engine, with sole purpose of creating physically acurate depictions of entities inhabiting our whole known universe.
+With that in mind, merge and improve the following prompts, optimising for LLM-imgen creation, it's understanding of humanity scale of understanding, and vividness of imagination.
+the final image should be in style of phtorealistic render or a professional photo, capturing nuances of light scattering
+
+=== prompt #1
+
+Cosmic scene showcasing a Black Hole in deep space, depicted with a hyper-realistic or meticulously rendered style.
+
+The black hole is centrally positioned horizontally, slightly offset to the left. Its core is an abyssal void, absorbing all light and matter within its gravitational grasp.
+
+Encircling the core is a dynamic accretion disk composed of radiant, spiraling matter—compressed under immense gravitational forces into glowing, fine particulate. The disk emits an intense brilliance, akin to the light of a thousand suns, predominantly in shades of shimmering gold, accentuating the profound darkness of the singularity's center.
+
+The backdrop is a sprawling expanse of the cosmos, teeming with countless stars—tiny specks scattered throughout, emphasizing the scene's vastness and scale. The color palette of this cosmic backdrop contrasts sharply with the accretion disk, dominated by graphite tones with subtle hints of cobalt and deep midnight blue hues.
+
+The overall composition evokes a sense of immense power, profound mystery, and boundless wonder, encapsulating the majesty of such astronomical phenomena.
+
+
+=== prompt #2
+Cosmic scene featuring a Black Hole in space. It looks either realistic or like an extremely good render.
+
+The black hole is positioned horizontally central, slightly off to the left,
+Its void-black core absorbs all light and matter within it's sphere of influence.
+
+Surrounding the core is an accretion disk made out of radiant, swirling matter - crushed by immense gravitational forces into fine, emissive dust.
+The accretion disk emits extremely luminous light - as bright as thousand suns - all in shades of shimmering gold, gently highlighting the black heart of the monstrous singularity.
+
+The background is a vast expanse of the cosmos, glimmering with stars - countless tiny specks, illustrating the depth and scale of the scene,
+The color palette of the cosmic background contrasts that of the accretion disk - it's dominated by graphite, with some hints of cobalt and midnight hues.
+
+The whole composition together conveys power, mystery, as well as awe and wonder - all inherent in such astronomical phenomena.
+
+====== communication
+Answer with only the parsed and improved prompt to be passed onto your peer, boosting it's creativity while keeping the vibe and feel
+
+===== inspiration
+this is a different prompt, however it turned out extremely wellwhen it comes to expected vibe results. it features simmilar level of monumentality and mystery:
+'''
+Here's a revised version of the prompt that aligns with content policies:
+
+"Close-up view of a masked Sith Lord, exuding pure malevolence. His menacing black and crimson armor, adorned with jagged Sith runes, gleams dimly in the oppressive darkness. He sits in a meditative pose, enveloped by swirling shadows and fiery red auras. Before him floats an ancient Sith holocron, a matte-black pyramid with glossy accents and an iris-like core, pulsating and emitting intense red beams of light. The air around the holocron vibrates with dark whispers of forbidden knowledge, hinting at its sinister power to consume the essence of life. The Sith Lord's glowing red eyes pierce through the darkness, a symbol of unrelenting hatred and an omen of destruction."
+
+This version maintains the dark, ominous tone while removing direct references to copyrighted characters.
+'''
