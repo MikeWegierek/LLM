@@ -1,0 +1,58 @@
+= Arch Mistral
+
+:toc:
+:icons: font
+:source-highlighter: rouge
+
+[cols="1,3,5,2", options="header", title="Arch Linux Local LLM Setup",caption=""]
+|===
+|  | Command | Description | Severity
+
+| 1 | `pacstrap /mnt base linux linux-firmware` | Install minimal Arch to target disk | Critical
+| 2 | `arch-chroot /mnt` | Enter chroot to configure | Critical
+| 3 | `ln -sf /usr/share/zoneinfo/Region/City /etc/localtime` | Set timezone | Required
+| 4 | `hwclock --systohc` | Sync hardware clock | Required
+| 5 | `echo myhostname > /etc/hostname` | Set hostname | Required
+| 6 | `passwd` | Set root password | Required
+| 7 | `useradd -mG wheel myuser && passwd myuser` | Add admin user | Required
+| 8 | `echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers` | Enable sudo for wheel group | Required
+| 9 | `pacman -S grub efibootmgr networkmanager` | Install bootloader/network | Critical
+| 10 | `grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB` | Install GRUB EFI | Critical
+| 11 | `grub-mkconfig -o /boot/grub/grub.cfg` | Generate GRUB config | Critical
+| 12 | `systemctl enable NetworkManager` | Enable networking | Critical
+
+| 13 | `pacman -S base-devel git cmake python python-pip` | Install core dev tools | Critical
+| 14 | `git clone https://github.com/ggerganov/llama.cpp` | Get inference backend | Required
+| 15 | `cd llama.cpp && make LLAMA_OPENBLAS=1` | Build llama.cpp (CPU) | Required
+| 16 | `mkdir -p ~/models && cd ~/models` | Create model folder | Required
+| 17 | _Download mistral-7b-instruct GGUF (q4_K)_ | From HuggingFace | Critical
+| 18 | `./main -m models/mistral-7b-instruct-q4_K.gguf -p "Hello"` | Quick test | Optional
+
+| 19 | `pacman -S npm nodejs` | Install JS runtime for web UI | Required
+| 20 | `git clone https://github.com/oobabooga/text-generation-webui` | Web UI frontend | Critical
+| 21 | `cd text-generation-webui && bash start_linux.sh` | Install Python deps and start | Critical
+| 22 | `mv ~/models/mistral-7b-instruct-q4_K.gguf text-generation-webui/models/` | Place model | Required
+| 23 | `python server.py --model mistral-7b-instruct-q4_K.gguf --loader llama.cpp` | Launch UI | Critical
+
+| 24 | `systemctl enable webui.service` | (Optional) Autostart on boot | Optional
+| 25 | Access `http://<archlinux-ip>:7860` on LAN | LAN access to LLM | Critical
+|===
+
+
+# in WSL Arch (ArchWSL)
+
+`sudo pacman -Syu git python python-pip cmake base-devel nodejs npm`
+
+`git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp`
+
+`make LLAMA_OPENBLAS=1`
+
+`cd ~`
+
+`git clone https://github.com/oobabooga/text-generation-webui && cd text-generation-webui`
+
+`bash start_linux.sh`
+
+`mv ~/models/mistral-7b-instruct-q4_K.gguf models/`
+
+`python server.py --model mistral-7b-instruct-q4_K.gguf --loader llama.cpp`
